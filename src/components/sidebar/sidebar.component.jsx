@@ -1,4 +1,5 @@
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import CreateIcon from "@material-ui/icons/Create";
 
 import { SidebarContainer, SidebarHeader, SidebarInfo } from "./sidebar.styles";
 
@@ -13,6 +14,7 @@ const Sidebar = () => {
             Joe Santhosh
           </h3>
         </SidebarInfo>
+        <CreateIcon />
       </SidebarHeader>
     </SidebarContainer>
   );

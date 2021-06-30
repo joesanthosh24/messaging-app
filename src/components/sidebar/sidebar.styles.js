@@ -12,16 +12,38 @@ export const SidebarContainer = styled.div`
 export const SidebarHeader = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
+  justify-content: space-between;
+
+  > .MuiSvgIcon-root {
+    background-color: #fff;
+    padding: 8px;
+    color: #49274b;
+    font-size: 18px;
+    border-radius: 999px;
+  }
 `;
 
 export const SidebarInfo = styled.div`
+  flex: 1;
+
+  > h2 {
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+
   > h3 {
     display: flex;
     align-items: center;
-  }
+    font-size: 13px;
+    font-weight: 400;
 
-  > .MuiSvgIcon-root {
-    color: green;
+    > .MuiSvgIcon-root {
+      color: var(--active-status-color);
+      font-size: 14px;
+      margin-top: 1px;
+      margin-right: 2px;
+    }
   }
 `;
