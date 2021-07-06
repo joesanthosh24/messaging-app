@@ -7,6 +7,11 @@ export const SidebarContainer = styled.div`
   border-top: 1px solid #fff;
   max-width: 260px;
   margin-top: 60px;
+
+  > hr {
+    margin: 10px auto;
+    border-top: 1px solid #49274b;
+  }
 `;
 
 export const SidebarHeader = styled.div`

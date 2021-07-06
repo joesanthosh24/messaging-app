@@ -15,6 +15,14 @@ export const SidebarOptionsContainer = styled.div`
   > .MuiSvgIcon-root {
     margin-right: 10px;
   }
+
+  > h3 {
+    font-weight: 500;
+  }
+
+  span {
+    padding: 15px;
+  }
 `;
 
 export const SidebarOptionChannel = styled.div``;
