@@ -3,12 +3,16 @@ import {
   SidebarOptionChannel,
 } from "./sidebar-options.styles";
 
-const SidebarOptions = ({ Icon, title, addChannelOption }) => {
+import { db } from "../../firebase";
+
+const SidebarOptions = ({ Icon, title, addChannelOption, id }) => {
   const addChannel = () => {
     const roomName = prompt("Enter Room Name: ");
 
     if (roomName) {
-      addChannelOption(roomName);
+      db.collection("rooms").add({
+        name: roomName,
+      });
     }
   };
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCollection } from "react-firebase-hooks/firestore";
 
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -10,12 +10,10 @@ import { SidebarContainer, SidebarHeader, SidebarInfo } from "./sidebar.styles";
 
 import SidebarOptions from "../sidebar-options/sidebar-options.component";
 
-const Sidebar = () => {
-  const [rooms, setRooms] = useState([]);
+import { db } from "../../firebase";
 
-  const addRoom = (roomName) => {
-    setRooms([...rooms, roomName]);
-  };
+const Sidebar = () => {
+  const [rooms, loading, error] = useCollection(db.collection("rooms"));
 
   return (
     <SidebarContainer>
@@ -32,15 +30,11 @@ const Sidebar = () => {
       <SidebarOptions Icon={PeopleIcon} title="People and Groups" />
       <hr />
       <SidebarOptions Icon={ExpandMoreIcon} title="Channels" />
-      {rooms.map((name) => (
-        <SidebarOptions key={name} title={name} />
+      {rooms?.docs.map((doc) => (
+        <SidebarOptions id={doc.id} key={doc.id} title={doc.data().name} />
       ))}
       <hr />
-      <SidebarOptions
-        addChannelOption={addRoom}
-        Icon={AddIcon}
-        title="Add Channel"
-      />
+      <SidebarOptions addChannelOption Icon={AddIcon} title="Add Channel" />
     </SidebarContainer>
   );
 };
