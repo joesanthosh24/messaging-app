@@ -6,7 +6,7 @@ import { ChatInputContainer } from "./chat-input.styles";
 
 import { db } from "../../firebase";
 
-const ChatInput = ({ channelName, channelId }) => {
+const ChatInput = ({ channelName, channelId, chatRef }) => {
   const [message, setMessage] = useState("");
 
   const sendMessage = (e) => {
@@ -21,6 +21,10 @@ const ChatInput = ({ channelName, channelId }) => {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: "Aomine GOAT",
       userImage: "https://static.zerochan.net/Aomine.Daiki.full.2599090.png",
+    });
+
+    chatRef.current.scrollIntoView({
+      behavior: "smooth",
     });
 
     setMessage("");
