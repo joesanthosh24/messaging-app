@@ -13,7 +13,7 @@ import SidebarOptions from "../sidebar-options/sidebar-options.component";
 import { db } from "../../firebase";
 
 const Sidebar = () => {
-  const [rooms, loading, error] = useCollection(db.collection("rooms"));
+  const [rooms] = useCollection(db.collection("rooms"));
 
   return (
     <SidebarContainer>
