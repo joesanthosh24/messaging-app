@@ -1,4 +1,5 @@
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -10,10 +11,11 @@ import { SidebarContainer, SidebarHeader, SidebarInfo } from "./sidebar.styles";
 
 import SidebarOptions from "../sidebar-options/sidebar-options.component";
 
-import { db } from "../../firebase";
+import { db, auth } from "../../firebase";
 
 const Sidebar = () => {
   const [rooms] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
@@ -22,7 +24,7 @@ const Sidebar = () => {
           <h2>HQ</h2>
           <h3>
             <FiberManualRecordIcon />
-            Joe Santhosh
+            {user?.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />
